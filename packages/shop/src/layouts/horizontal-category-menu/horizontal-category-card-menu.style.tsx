@@ -90,3 +90,12 @@ export const SliderNav = styled.button({
     right: -15,
   },
 });
+
+export const LoaderWrapper = styled.div(
+  css({
+    '.center': {
+      display: 'block',
+      margin: '0 auto'
+    }
+  })
+);

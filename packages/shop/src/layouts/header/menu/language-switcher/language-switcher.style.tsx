@@ -35,7 +35,7 @@ export const SelectedItem = styled.button`
 
   @media (max-width: 767px) {
     border: 0;
-    padding: 0;
+    padding: 10px;
   }
 
   span {

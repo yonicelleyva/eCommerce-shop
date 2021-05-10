@@ -16,7 +16,11 @@ import {
   ImageWrapper,
   Title,
   SliderNav,
+  LoaderWrapper
 } from './horizontal-category-card-menu.style';
+import {
+  ThreeDots
+} from 'components/placeholder/placeholder';
 
 SwiperCore.use([Navigation]);
 
@@ -30,16 +34,26 @@ export const HorizontalCategoryCardMenu = ({ type }: Props) => {
     variables: { type },
   });
   if (error) return <ErrorMessage message={error.message} />;
-  if (loading) return <p>Loading...</p>;
+  if (loading) {
+    return (
+      <LoaderWrapper>
+        <ThreeDots className='center' uniqueKey='categories-1' />
+      </LoaderWrapper>
+    );
+  }
   if (!data) return null;
   const { pathname, query } = router;
   const selectedQueries = query.category;
 
   const onCategoryClick = (slug: string) => {
-    router.push({
-      pathname,
-      query: { ...query, category: slug },
-    });
+    router.push(
+      {
+        pathname,
+        query: { ...query, category: slug }
+      },
+      undefined,
+      {scroll: false}
+    );
   };
 
   const breakpoints = {

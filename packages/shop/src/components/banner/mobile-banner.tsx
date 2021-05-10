@@ -3,6 +3,7 @@ import React, { useCallback, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import {
   Box,
+  Image,
   Content,
   ContentRow,
   Description,
@@ -20,10 +21,11 @@ const CategoryIconNav = dynamic(() => import('components/type-nav/type-nav'));
 
 interface Props {
   intlTitleId: string;
+  imageUrl: string;
   type?: string;
 }
 
-export const MobileBanner: React.FC<Props> = ({ type, intlTitleId }) => {
+export const MobileBanner: React.FC<Props> = ({ type, imageUrl, intlTitleId }) => {
   const [isOpen, setOpen] = useState(false);
 
   const dispatch = useAppDispatch();
@@ -40,6 +42,7 @@ export const MobileBanner: React.FC<Props> = ({ type, intlTitleId }) => {
   };
   return (
     <Box display={['flex', 'flex', 'none']}>
+      <Image backgroundImage={`url(${imageUrl})`} />
       <Content>
         <ContentRow>
           <Description>

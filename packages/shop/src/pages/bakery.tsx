@@ -21,19 +21,7 @@ const CartPopUp = dynamic(() => import('features/carts/cart-popup'), {
 export const Main = styled.div<any>(
   css({
     backgroundColor: 'gray.200',
-    position: 'relative',
-    // overflow: 'hidden',
-    // padding: ['68px 0 100px', '68px 0 50px', '110px 2rem 50px'],
-    // display: 'grid',
-    // minHeight: '100vh',
-    // gridColumnGap: '30px',
-    // gridRowGap: ['15px', '20px', '0'],
-    // gridTemplateColumns: [
-    //   'minmax(0, 1fr)',
-    //   'minmax(0, 1fr)',
-    //   '300px minmax(0, 1fr)',
-    // ],
-    // backgroundColor: '#f9f9f9'
+    // padding: ['0', '0', '78px 0rem']
   })
 );
 
@@ -69,7 +57,11 @@ export default function BakeryPage({ deviceType }) {
 
   return (
     <Modal>
-      <MobileBanner intlTitleId={page?.banner_title_id} type={PAGE_TYPE} />
+      <MobileBanner
+        intlTitleId={page?.banner_title_id}
+        type={PAGE_TYPE}
+        imageUrl={page?.banner_image_url}
+      />
       <Banner
         intlTitleId={page?.banner_title_id}
         intlDescriptionId={page?.banner_description_id}
@@ -79,27 +71,10 @@ export default function BakeryPage({ deviceType }) {
       <Main>
         <HorizontalCategoryCardMenu type={PAGE_TYPE} />
         <Box padding={['0 15px 100px ', '0 15px 30px ', '0 30px 30px']}>
-          <ProductGrid type={PAGE_TYPE} />
+          <ProductGrid type={PAGE_TYPE} deviceType={deviceType}/>
         </Box>
       </Main>
       <CartPopUp deviceType={deviceType} />
     </Modal>
   );
 }
-
-const ContentArea = styled.div<any>(
-  css({
-    overflow: 'hidden',
-    padding: ['68px 0 100px', '68px 0 50px', '110px 2rem 50px'],
-    display: 'grid',
-    minHeight: '100vh',
-    gridColumnGap: '30px',
-    gridRowGap: ['15px', '20px', '0'],
-    gridTemplateColumns: [
-      'minmax(0, 1fr)',
-      'minmax(0, 1fr)',
-      // '300px minmax(0, 1fr)',
-    ],
-    backgroundColor: '#f9f9f9'
-  })
-);

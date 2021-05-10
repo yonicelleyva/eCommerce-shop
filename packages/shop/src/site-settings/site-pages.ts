@@ -6,6 +6,7 @@ import booksImage from 'assets/images/banner/books.png';
 import furnitureImage from 'assets/images/banner/furniture.png';
 import medicineImage from 'assets/images/banner/medicine.png';
 import bakeryImage from 'assets/images/banner/bakery.jpg';
+import bannerShop from 'assets/images/banner/banner-shop.jpg';
 
 export const sitePages = {
   grocery: {
@@ -20,7 +21,7 @@ export const sitePages = {
     page_description: 'Bakery Details',
     banner_title_id: 'bakeryTitle',
     banner_description_id: 'bakerySubTitle',
-    banner_image_url: bakeryImage,
+    banner_image_url: bannerShop,
   },
   makeup: {
     page_title: 'Makeup - PickBazar',

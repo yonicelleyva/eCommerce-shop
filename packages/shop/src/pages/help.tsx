@@ -29,15 +29,15 @@ const accordionData = [
   },
 ];
 
-const Heading = styled.h3`
-  font-size: 21px;
-  font-weight: 700;
-  color: #0d1136;
-  line-height: 1.2;
-  margin-bottom: 25px;
-  width: 100%;
-  text-align: center;
-`;
+const Heading = styled.h3<any>({
+  fontSize: '21px',
+  fontWeight: 700,
+  color: '#0d1136',
+  lineHeight: 1.2,
+  marginBottom: '25px',
+  width: '100%',
+  textAlign: 'center'
+});
 
 const HelpPageWrapper = styled.div`
   background-color: #f7f7f7;
@@ -73,7 +73,7 @@ export const HelpPageContainer = styled.div`
 export default function () {
   return (
     <Modal>
-      <SEO title="F.A.Q - PickBazar" description="F.A.Q Details" />
+      <SEO title="F.A.Q" description="F.A.Q Details" />
       <HelpPageWrapper>
         <HelpPageContainer>
           <Heading>F.A.Q</Heading>

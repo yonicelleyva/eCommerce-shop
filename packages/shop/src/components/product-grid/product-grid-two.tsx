@@ -1,5 +1,6 @@
 import React from 'react';
 import { ProductCard } from 'components/product-card/product-card-six';
+import ProductCardOne from 'components/product-card/product-card-one/product-card-one';
 import styled from 'styled-components';
 import css from '@styled-system/css';
 import ErrorMessage from 'components/error-message/error-message';
@@ -12,6 +13,7 @@ import { Box } from 'components/box';
 import NoResultFound from 'components/no-result/no-result';
 import Placeholder from 'components/placeholder/placeholder';
 import { LoaderItem, LoaderWrapper } from './product-list/product-list.style';
+import { CURRENCY } from 'utils/constant';
 
 const Grid = styled.div(
   css({
@@ -47,6 +49,7 @@ const Grid = styled.div(
 
 interface Props {
   type: string;
+  deviceType: string;
   loadMore?: boolean;
   fetchLimit?: number;
   style?: any;
@@ -55,6 +58,7 @@ interface Props {
 export const ProductGrid = ({
   style,
   type,
+  deviceType,
   fetchLimit = 16,
   loadMore = true,
 }: Props) => {
@@ -79,13 +83,16 @@ export const ProductGrid = ({
     return (
       <LoaderWrapper>
         <LoaderItem>
-          <Placeholder uniqueKey='1' />
+          <Placeholder uniqueKey='product-1' />
         </LoaderItem>
         <LoaderItem>
-          <Placeholder uniqueKey='2' />
+          <Placeholder uniqueKey='product-2' />
         </LoaderItem>
         <LoaderItem>
-          <Placeholder uniqueKey='3' />
+          <Placeholder uniqueKey='product-3' />
+        </LoaderItem>
+        <LoaderItem>
+          <Placeholder uniqueKey='product-4' />
         </LoaderItem>
       </LoaderWrapper>
     );
@@ -107,6 +114,18 @@ export const ProductGrid = ({
       <Grid style={style}>
         {items.map((product, idx) => (
           <ProductCard data={product} key={product.id} />
+          // <ProductCardOne
+          //   title={product.title}
+          //   description={product.description}
+          //   image={product.image}
+          //   weight={product.unit}
+          //   currency={CURRENCY}
+          //   price={product.price}
+          //   salePrice={product.salePrice}
+          //   discountInPercent={product.discountInPercent}
+          //   data={product}
+          //   deviceType={deviceType}
+          // />
         ))}
       </Grid>
       {loadMore && hasMore && (

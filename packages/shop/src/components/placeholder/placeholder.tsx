@@ -66,4 +66,19 @@ export const SidebarLoader = (props) => (
     <rect x="69" y="323" rx="0" ry="0" width="260" height="24" />
   </ContentLoader>
 );
+
+export const ThreeDots = props => (
+  <ContentLoader
+    viewBox="0 0 400 160"
+    height={100}
+    width={300}
+    backgroundColor="transparent"
+    {...props}
+  >
+    <circle cx="150" cy="86" r="8" />
+    <circle cx="194" cy="86" r="8" />
+    <circle cx="238" cy="86" r="8" />
+  </ContentLoader>
+)
+
 export default PostLoader;

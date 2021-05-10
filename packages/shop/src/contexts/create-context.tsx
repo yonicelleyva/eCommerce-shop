@@ -1,4 +1,4 @@
-import React, { useContext, createContext } from 'react';
+import React, { useContext, createContext, useReducer } from 'react';
 
 export function useCreateContext<StateType, ActionType>(
   reducer: React.Reducer<StateType, ActionType>,
@@ -18,7 +18,7 @@ export function useCreateContext<StateType, ActionType>(
   }
 
   function Provider(props: React.PropsWithChildren<{}>) {
-    const [state, dispatch] = React.useReducer<
+    const [state, dispatch] = useReducer<
       React.Reducer<StateType, ActionType>
     >(reducer, initialState);
     return (
