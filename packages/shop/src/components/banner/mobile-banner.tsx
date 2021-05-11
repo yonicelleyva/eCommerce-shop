@@ -21,7 +21,7 @@ const CategoryIconNav = dynamic(() => import('components/type-nav/type-nav'));
 
 interface Props {
   intlTitleId: string;
-  imageUrl: string;
+  imageUrl?: string;
   type?: string;
 }
 

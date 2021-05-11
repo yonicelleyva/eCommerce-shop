@@ -9,14 +9,14 @@ import HeaderWrapper from './header.style';
 // import LogoImage from 'assets/images/logo.svg';
 import LogoImage from 'assets/images/lfh-pink-logo.png';
 import UserImage from 'assets/images/user.jpg';
-import { isCategoryPage } from '../is-home-page';
 import Search from 'features/search/search';
 type Props = {
   isSticky: boolean,
+  isHomePage: boolean,
   className?: string;
 };
 
-const Header: React.FC<Props> = ({ className, isSticky }) => {
+const Header: React.FC<Props> = ({ className, isSticky, isHomePage }) => {
   const {
     authState: { isAuthenticated },
     authDispatch,
@@ -50,14 +50,10 @@ const Header: React.FC<Props> = ({ className, isSticky }) => {
       },
     });
   };
-  const showSearch =
-    isCategoryPage(query.type) ||
-    pathname === '/furniture-two' ||
-    pathname === '/grocery-two'
-    // pathname === '/bakery';
+  const showSearch = isHomePage && isSticky;
   return (
     <HeaderWrapper className={className} id="layout-header">
-      <LeftMenu logo={LogoImage}  isSticky={isSticky}/>
+      <LeftMenu logo={LogoImage}  isSticky={isSticky} isHomePage={isHomePage}/>
       {showSearch && <Search minimal={true} className="headerSearch" />}
       <RightMenu
         isAuthenticated={isAuthenticated}

@@ -120,7 +120,7 @@ export async function getStaticPaths() {
       { params: { type: 'book' } },
       { params: { type: 'medicine' } },
       { params: { type: 'furniture' } },
-      { params: { type: 'clothing' } },
+      // { params: { type: 'clothing' } },
     ],
     fallback: false,
   };

@@ -19,12 +19,14 @@ import { SearchIcon } from 'assets/icons/SearchIcon';
 import { LongArrowLeft } from 'assets/icons/LongArrowLeft';
 import Logo from 'layouts/logo/logo';
 import LanguageSwitcher from './menu/language-switcher/language-switcher';
-import { isCategoryPage } from '../is-home-page';
 import useDimensions from 'utils/useComponentSize';
+import { BooleanSchema } from 'yup';
 
 type MobileHeaderProps = {
   className?: string;
   closeSearch?: any;
+  isSticky: boolean;
+  isHomePage: boolean;
 };
 
 const SearchModal: React.FC<{}> = () => {
@@ -45,9 +47,7 @@ const SearchModal: React.FC<{}> = () => {
   );
 };
 
-const MobileHeader: React.FC<MobileHeaderProps> = ({ className }) => {
-  const { pathname, query } = useRouter();
-
+const MobileHeader: React.FC<MobileHeaderProps> = ({ className, isSticky, isHomePage }) => {
   const [mobileHeaderRef, dimensions] = useDimensions();
 
   const handleSearchModal = () => {
@@ -65,9 +65,7 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ className }) => {
       closeComponent: () => <div />,
     });
   };
-  const type = pathname === '/restaurant' ? 'restaurant' : query.type;
-
-  const isHomePage = isCategoryPage(type);
+  const showSearch = isHomePage && isSticky;
 
   return (
     <MobileHeaderWrapper>
@@ -82,14 +80,11 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ className }) => {
 
         <LanguageSwitcher />
 
-        {isHomePage ? (
-          <SearchWrapper
-            onClick={handleSearchModal}
-            className='searchIconWrapper'
-          >
+        {showSearch && 
+          <SearchWrapper onClick={handleSearchModal} className='searchIconWrapper'>
             <SearchIcon />
           </SearchWrapper>
-        ) : null}
+        }
       </MobileHeaderInnerWrapper>
     </MobileHeaderWrapper>
   );

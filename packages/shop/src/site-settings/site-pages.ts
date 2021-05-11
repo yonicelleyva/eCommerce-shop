@@ -38,11 +38,11 @@ export const sitePages = {
     banner_image_url: bagsImage,
   },
   clothing: {
-    page_title: 'Clothing - PickBazar',
+    page_title: 'Clothing',
     page_description: 'Clothing Details',
     banner_title_id: 'womenClothsTitle',
     banner_description_id: 'womenClothsSubTitle',
-    banner_image_url: clothingImage,
+    banner_image_url: bannerShop,
   },
   furniture: {
     page_title: 'Furniture - PickBazar',

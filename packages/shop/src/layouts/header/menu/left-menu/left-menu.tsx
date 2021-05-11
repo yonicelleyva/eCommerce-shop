@@ -16,6 +16,7 @@ import {
   LeftMenuBox,
   LogoContainer
 } from './left-menu.style';
+import { useState } from 'react';
 
 const CategoryIcon = ({ name }) => {
   const TagName = categoryMenuIcons[name];
@@ -50,9 +51,11 @@ const CategoryMenu = (props: any) => {
 type Props = {
   logo: string;
   isSticky: boolean;
+  isHomePage: boolean;
 };
 
-export const LeftMenu: React.FC<Props> = ({ logo, isSticky }) => {
+export const LeftMenu: React.FC<Props> = ({ logo, isSticky, isHomePage }) => {
+  const showLogo = !isHomePage || isSticky;
   const router = useRouter();
   const initialMenu = CATEGORY_MENU_ITEMS.find(
     (item) => item.href === router.asPath
@@ -63,7 +66,7 @@ export const LeftMenu: React.FC<Props> = ({ logo, isSticky }) => {
 
   return (
     <LeftMenuBox>
-      {isSticky &&
+      {showLogo &&
         <LogoContainer>
           <Logo
               imageUrl={logo}

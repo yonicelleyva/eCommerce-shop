@@ -21,3 +21,6 @@ const arr = [
 export function isCategoryPage(pathname) {
   return arr.includes(`/${pathname}`);
 }
+export function isHomePageRoute(pathname) {
+  return pathname.includes('clothing')
+}
