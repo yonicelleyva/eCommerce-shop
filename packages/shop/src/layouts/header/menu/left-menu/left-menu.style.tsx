@@ -1,5 +1,14 @@
 import styled from 'styled-components';
+import css from '@styled-system/css';
 import { themeGet } from '@styled-system/theme-get';
+
+export const LogoContainer = styled.div<any>(
+  css({
+    img: {
+      maxWidth: '200px'
+    }
+  })
+);
 
 export const LeftMenuBox = styled.div`
   display: flex;

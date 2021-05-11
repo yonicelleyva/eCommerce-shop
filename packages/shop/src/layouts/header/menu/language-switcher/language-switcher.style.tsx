@@ -24,7 +24,7 @@ export const SelectedItem = styled.button`
   display: flex;
   align-items: center;
   background-color: ${themeGet('colors.white', '#ffffff')};
-  border: 1px solid ${themeGet('colors.gray.500', '#f1f1f1')};
+  border: 0px solid ${themeGet('colors.gray.500', '#f1f1f1')};
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 10px;

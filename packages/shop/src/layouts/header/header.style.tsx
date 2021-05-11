@@ -390,7 +390,7 @@ export const HamburgerIcon = styled.div`
   position: relative;
   > span {
     display: block;
-    background-color: ${themeGet('colors.text.bold', '#0D1136')};
+    background-color: ${themeGet('colors.primary.regular')};
     border-radius: ${themeGet('radii.base', '6px')};
     height: 3px;
     margin-bottom: 5px;

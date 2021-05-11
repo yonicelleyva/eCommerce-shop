@@ -21,7 +21,8 @@ const baseColor = {
   },
   transparent: 'transparent',
   primary: {
-    regular: '#019376', // primary color
+    regular: '#bf136e', // primary color
+    // regular: '#019376', // primary color
     hover: '#019376',
     alternate: '#028489',
     light: '#b7dbdd',

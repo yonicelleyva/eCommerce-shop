@@ -39,6 +39,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
         />
 
         <Header
+          isSticky={isSticky}
           className={`${isSticky ? 'sticky' : 'unSticky'} ${
             isHomePage ? 'home' : ''
           }`}

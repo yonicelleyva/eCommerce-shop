@@ -11,6 +11,19 @@ import {
 } from 'styled-system';
 import css from '@styled-system/css';
 
+export const LogoContainer = styled.div<any>(
+  css({
+    img: {
+      maxWidth: '310px'
+    }
+  }),
+  {
+    marginBottom: 15,
+    marginLeft: 'auto',
+    marginRight: 'auto'
+  }
+);
+
 export const Box = styled.div<any>(
   css({
     height: ['auto', 'auto', '600px', '100vh'],
@@ -96,7 +109,7 @@ export const ContentRow = styled.div(
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 20,
+    marginBottom: 40,
 
     button: {
       padding: 0,

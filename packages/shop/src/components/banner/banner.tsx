@@ -7,11 +7,14 @@ import {
   Title,
   Description,
   SearchWrapper,
+  LogoContainer
 } from './banner.style';
 
 import { Waypoint } from 'react-waypoint';
 import { useAppDispatch } from 'contexts/app/app.provider';
 import Search from 'features/search/search';
+import Logo from 'layouts/logo/logo';
+import logoImageUrl from 'assets/images/lfh-pink-logo.png';
 
 interface Props {
   style?: any;
@@ -42,7 +45,14 @@ export const Banner: React.FC<Props> = ({
     <Box display={['none', 'none', 'flex']} style={style}>
       <Image backgroundImage={`url(${imageUrl})`} />
       <Content>
-        <Title>
+        <LogoContainer>
+          <Logo
+            imageUrl={logoImageUrl}
+            alt={'Shop Logo'}
+          /> 
+        </LogoContainer>
+
+        {/* <Title>
           <FormattedMessage
             id={intlTitleId}
             defaultMessage="Set Your Title Through Language File"
@@ -54,7 +64,7 @@ export const Banner: React.FC<Props> = ({
             id={intlDescriptionId}
             defaultMessage="Set Your Description Through Language File"
           />
-        </Description>
+        </Description> */}
         <SearchWrapper>
           <Search
             className="banner-search"

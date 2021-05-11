@@ -14,6 +14,7 @@ import {
   Icon,
   Arrow,
   LeftMenuBox,
+  LogoContainer
 } from './left-menu.style';
 
 const CategoryIcon = ({ name }) => {
@@ -48,9 +49,10 @@ const CategoryMenu = (props: any) => {
 
 type Props = {
   logo: string;
+  isSticky: boolean;
 };
 
-export const LeftMenu: React.FC<Props> = ({ logo }) => {
+export const LeftMenu: React.FC<Props> = ({ logo, isSticky }) => {
   const router = useRouter();
   const initialMenu = CATEGORY_MENU_ITEMS.find(
     (item) => item.href === router.asPath
@@ -61,12 +63,16 @@ export const LeftMenu: React.FC<Props> = ({ logo }) => {
 
   return (
     <LeftMenuBox>
-      <Logo
-        imageUrl={logo}
-        alt={'Shop Logo'}
-        onClick={() => setActiveMenu(CATEGORY_MENU_ITEMS[0])}
-      />
-
+      {isSticky &&
+        <LogoContainer>
+          <Logo
+              imageUrl={logo}
+              alt={'Shop Logo'}
+              onClick={() => setActiveMenu(CATEGORY_MENU_ITEMS[0])}
+            />
+        </LogoContainer>
+      }
+{/* 
       <MainMenu>
         <Popover
           className="right"
@@ -90,7 +96,7 @@ export const LeftMenu: React.FC<Props> = ({ logo }) => {
           }
           content={<CategoryMenu onClick={setActiveMenu} />}
         />
-      </MainMenu>
+      </MainMenu> */}
     </LeftMenuBox>
   );
 };

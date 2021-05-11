@@ -45,7 +45,7 @@ export const MobileBanner: React.FC<Props> = ({ type, imageUrl, intlTitleId }) =
       <Image backgroundImage={`url(${imageUrl})`} />
       <Content>
         <ContentRow>
-          <Description>
+          {/* <Description>
             <FormattedMessage
               id={intlTitleId}
               defaultMessage="Set Your Title Through Language File"
@@ -59,7 +59,7 @@ export const MobileBanner: React.FC<Props> = ({ type, imageUrl, intlTitleId }) =
             style={{ textTransform: 'capitalize' }}
           >
             {type}
-          </Button>
+          </Button> */}
         </ContentRow>
 
         <SearchWrapper>
